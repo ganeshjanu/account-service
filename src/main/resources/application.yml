@@ -1,0 +1,6 @@
+spring:
+  kafka:
+    # change this property if you are using your own
+    # Kafka cluster or your Docker IP is different
+    bootstrap-servers: localhost:9092
+topic-name: account
