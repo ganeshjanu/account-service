@@ -3,4 +3,5 @@ spring:
     # change this property if you are using your own
     # Kafka cluster or your Docker IP is different
     bootstrap-servers: localhost:9092
-topic-name: account
+account-topic-name: account
+account-transaction-topic-name: account-transaction

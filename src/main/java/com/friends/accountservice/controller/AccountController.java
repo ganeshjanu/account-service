@@ -13,22 +13,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AccountServiceController {
+public class AccountController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AccountServiceController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @Autowired
     private KafkaTemplate<String, Object> template;
 
-    @Value("${topic-name}")
-    private String topicName;
+    @Value("${account-topic-name}")
+    private String accountTopicName;
 
-   private ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+   private ObjectMapper objectMapper ;
 
     @PostMapping("/account")
     public boolean account(@RequestBody Account account) throws Exception {
         try {
-           SendResult<String, Object> sendResult = template.send(topicName, account.getId(), objectMapper.writer().writeValueAsString(account)).get();
+           SendResult<String, Object> sendResult = template.send(accountTopicName, account.getId(), objectMapper.writer().writeValueAsString(account)).get();
            System.out.println("Result : " + sendResult.getProducerRecord().toString());
         } catch (Exception exception) {
             exception.printStackTrace();

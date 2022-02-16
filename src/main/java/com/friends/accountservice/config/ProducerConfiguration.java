@@ -1,5 +1,6 @@
 package com.friends.accountservice.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,10 @@ public class ProducerConfiguration {
     @Bean
     public KafkaTemplate<String, Object> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public ObjectMapper createObjectMapper() {
+        return new ObjectMapper();
     }
 }
