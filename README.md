@@ -6,7 +6,6 @@ APIs
 
 HTTP POST = /account
 
-
 HTTP POST = /accountTransaction
 
 ## Docker Commands
@@ -40,17 +39,25 @@ HTTP POST = /accountTransaction
   3. No of msg in a topic
   
       _kafka-console-consumer  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"_
+  
+  4. Delete a topic
+  
+        _kafka-topics --zookeeper zookeeper:2181 --delete --topic account_
 
 
 ## Build & Run Microservice as a Container
 
-  _cd <Go_to_Dockerfile_directory>_
+  1. Go to Dockerfile directory
 
-  _docker build -t <docker_username>/account-service:0.1 .
+      _cd <Go_to_Dockerfile_directory>_
+
+  2. Build the image
   
-  _kafka-topics --zookeeper zookeeper:2181 --delete --topic account_
+      _docker build -t <docker_username>/account-service:0.1 .
   
-  _docker run -p 9010:8080 <docker_username>/account-service-0.1_
+  3. Run a container
+  
+      _docker run -p 9010:8080 <docker_username>/account-service-0.1_
   
  
       
