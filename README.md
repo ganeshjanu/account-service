@@ -38,4 +38,7 @@ HTTP POST = /accountTransaction
     cd /opt/kafka/bin
       
     kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic account
+    
+    #no of msg in the topic
+    kafka-console-consumer.sh  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"
       
