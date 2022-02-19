@@ -27,27 +27,28 @@ HTTP POST = /accountTransaction
       
       _docker images_
       
-  5. Inside the Broker Container
-    
-      _docker exec -it broker /bin/sh_
-      
- ## Create Topic
+ ## Topic Utility
  
-     docker exec -it <kafka_broker_container_name> /bin/sh
+  1. Inside the broker container
+  
+      _docker exec -it <kafka_broker_container_name> bash_
       
-      cd /opt/kafka/bin
+  2. Create a topic using utility
       
-      kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 2 --topic account
+      _kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 2 --topic account_
     
-    #no of msg in the topic
-    kafka-console-consumer.sh  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"
+  3. No of msg in a topic
+  
+      _kafka-console-consumer  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"_
 
 
-## Build & Run Service as Container
+## Build & Run Microservice as a Container
 
   _cd <Go_to_Dockerfile_directory>_
 
-  _docker build -t <docker_username>/account-service:0.1 ._
+  _docker build -t <docker_username>/account-service:0.1 .
+  
+  _kafka-topics --zookeeper zookeeper:2181 --delete --topic account_
   
   _docker run -p 9010:8080 <docker_username>/account-service-0.1_
   
