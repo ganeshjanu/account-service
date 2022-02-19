@@ -17,7 +17,7 @@ HTTP POST = /accountTransaction
 
   2. Setup the Kafka env in docker
   
-        _docker-compose -f docker-compose.yml up -f_
+        _docker-compose -f docker-compose.yml up -d_
   
   3. List of Containers
   
