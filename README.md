@@ -41,4 +41,15 @@ HTTP POST = /accountTransaction
     
     #no of msg in the topic
     kafka-console-consumer.sh  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"
+
+
+## Build & Run Service as Container
+
+  _cd <Go_to_Dockerfile_directory>_
+
+  _docker build -t <docker_username>/account-service:0.1 ._
+  
+  _docker run -p 9010:8080 <docker_username>/account-service-0.1_
+  
+ 
       
