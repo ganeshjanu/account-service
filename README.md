@@ -27,17 +27,17 @@ HTTP POST = /accountTransaction
       
       _docker images_
       
-  5. Inside the Kafka Container
+  5. Inside the Broker Container
     
-      _docker exec -it kafka /bin/sh_
+      _docker exec -it broker /bin/sh_
       
  ## Create Topic
  
-    docker exec -it <kafka_broker_container_name> /bin/sh
+     docker exec -it <kafka_broker_container_name> /bin/sh
       
-    cd /opt/kafka/bin
+      cd /opt/kafka/bin
       
-    kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic account
+      kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 2 --topic account
     
     #no of msg in the topic
     kafka-console-consumer.sh  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"
