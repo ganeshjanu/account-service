@@ -1,4 +1,4 @@
-package com.friends.accountservice.bean;
+package com.friends.accountservice.beans;
 
 public class AccountTransaction {
 

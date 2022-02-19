@@ -17,19 +17,16 @@ import java.util.Map;
 
 @Configuration
 public class ProducerConfiguration {
+
     @Autowired
     private KafkaProperties kafkaProperties;
 
     // Producer configuration
-
     @Bean
     public Map<String, Object> producerConfigs() {
-        Map<String, Object> props =
-                new HashMap<>(kafkaProperties.buildProducerProperties());
-        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
-                StringSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-                JsonSerializer.class);
+        Map<String, Object> props = new HashMap<>(kafkaProperties.buildProducerProperties());
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         return props;
     }
 

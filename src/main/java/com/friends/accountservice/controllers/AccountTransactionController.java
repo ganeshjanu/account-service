@@ -1,8 +1,7 @@
-package com.friends.accountservice.controller;
+package com.friends.accountservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.friends.accountservice.bean.Account;
-import com.friends.accountservice.bean.AccountTransaction;
+import com.friends.accountservice.beans.AccountTransaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
