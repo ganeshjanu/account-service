@@ -6,7 +6,6 @@ APIs
 
 HTTP POST = /account
 
-
 HTTP POST = /accountTransaction
 
 ## Docker Commands
@@ -17,7 +16,7 @@ HTTP POST = /accountTransaction
 
   2. Setup the Kafka env in docker
   
-        _docker-compose -f docker-compose.yml up -f_
+        _docker-compose -f docker-compose.yml up -d_
   
   3. List of Containers
   
@@ -27,15 +26,38 @@ HTTP POST = /accountTransaction
       
       _docker images_
       
-  5. Inside the Kafka Container
-    
-      _docker exec -it kafka /bin/sh_
-      
- ## Create Topic
+ ## Topic Utility
  
-    docker exec -it <kafka_broker_container_name> /bin/sh
+  1. Inside the broker container
+  
+      _docker exec -it <kafka_broker_container_name> bash_
       
-    cd /opt/kafka/bin
+  2. Create a topic using utility
       
-    kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic account
+      _kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 2 --topic account_
+    
+  3. No of msg in a topic
+  
+      _kafka-console-consumer  --from-beginning --bootstrap-server 127.0.0.1:9092 --property print.key=true  --property print.value=false --property print.partition  --topic account --timeout-ms 5000 | tail -n 10|grep "Processed a total of"_
+  
+  4. Delete a topic
+  
+        _kafka-topics --zookeeper zookeeper:2181 --delete --topic account_
+
+
+## Build & Run Microservice as a Container
+
+  1. Go to Dockerfile directory
+
+      _cd <Go_to_Dockerfile_directory>_
+
+  2. Build the image
+  
+      _docker build -t <docker_username>/account-service:0.1 .
+  
+  3. Run a container
+  
+      _docker run -p 9010:8080 <docker_username>/account-service-0.1_
+  
+ 
       
