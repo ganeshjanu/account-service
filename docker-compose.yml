@@ -34,8 +34,8 @@ services:
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
 
-  account-service:
-      image: ganeshjanu/account-service:0.1
-      container_name:  account-service
+  account-service-producer:
+      image: ganeshjanu/account-service-producer:0.1
+      container_name:  account-service-producer
       ports:
         - "9090:8080"

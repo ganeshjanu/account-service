@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.friends</groupId>
-	<artifactId>account-service</artifactId>
+	<artifactId>account-service-producer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>kafka-example</name>
-	<description>Kafka and Spring Boot app</description>
+	<name>account-service-producer</name>
+	<description>Spring Boot Account Service Producer</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
