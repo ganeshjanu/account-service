@@ -53,7 +53,7 @@ HTTP POST = /accountTransaction
 
   2. Build the image
   
-      _docker build -t <docker_username>/account-service-producer:0.1 .
+      _docker build -t <docker_username>/account-service-producer:0.1 ._
   
   3. Run a container
   
