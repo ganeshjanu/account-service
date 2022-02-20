@@ -1,6 +1,6 @@
-# account-service
+# account-service-producer
 
-This microservice is mainly used to both produce and consume records from a topic.
+This microservice is mainly used to produce records into a topic.
 
 APIs
 
@@ -51,13 +51,18 @@ HTTP POST = /accountTransaction
 
       _cd <Go_to_Dockerfile_directory>_
 
-  2. Build the image
+  2. Build an image
   
-      _docker build -t <docker_username>/account-service:0.1 .
+      _docker build -t <docker_username>/account-service-producer:0.1 ._
   
   3. Run a container
   
-      _docker run -p 9010:8080 <docker_username>/account-service-0.1_
+      _docker run -p 9010:8080 <docker_username>/account-service-producer-0.1_
+  
+  4. Push an image
+  
+      _docker push ganeshjanu/account-service-producer:0.1_
+      
   
  
       
