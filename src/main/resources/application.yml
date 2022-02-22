@@ -1,7 +1,5 @@
 spring:
   kafka:
-    # change this property if you are using your own
-    # Kafka cluster or your Docker IP is different
-    bootstrap-servers: broker:9092
+    bootstrap-servers: ${BROKERS_IP}
 account-topic-name: account
 account-transaction-topic-name: account-transaction

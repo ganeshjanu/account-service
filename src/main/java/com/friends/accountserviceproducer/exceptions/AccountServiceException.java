@@ -1,4 +1,4 @@
-package com.friends.accountservice.exceptions;
+package com.friends.accountserviceproducer.exceptions;
 
 public class AccountServiceException extends Exception {
 

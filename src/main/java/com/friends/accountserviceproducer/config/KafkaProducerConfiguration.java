@@ -1,4 +1,4 @@
-package com.friends.accountservice.config;
+package com.friends.accountserviceproducer.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class ProducerConfiguration {
+public class KafkaProducerConfiguration {
 
     @Autowired
     private KafkaProperties kafkaProperties;

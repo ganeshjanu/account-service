@@ -42,7 +42,7 @@ HTTP POST = /accountTransaction
   
   4. Delete a topic
   
-        _kafka-topics --zookeeper zookeeper:2181 --delete --topic account_
+      _kafka-topics --zookeeper zookeeper:2181 --delete --topic account_
 
 
 ## Build & Run Microservice as a Container
@@ -61,7 +61,7 @@ HTTP POST = /accountTransaction
   
   4. Push an image
   
-      _docker push ganeshjanu/account-service-producer:0.1_
+      _docker push <docker_username>/account-service-producer:0.1_
       
   
  
